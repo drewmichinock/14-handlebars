@@ -1,0 +1,36 @@
+body {
+    background-color: #ffcc66;
+}
+
+#burger-img {
+    padding-top: 20px;
+    display: block;
+    margin: auto;
+}
+
+h1 {
+    color: #f00;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+textarea {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-control {
+    width: 35%;
+}
+
+#instructions {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.btn {
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+}
