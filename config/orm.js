@@ -29,7 +29,7 @@ function objToSql(ob) {
 var orm = {
 
   // method to select all values from table
-  selectAll: function (tableInput, cb) {
+  all: function (tableInput, cb) {
 
     var queryString = "SELECT * FROM " + tableInput + ";";
 
@@ -48,7 +48,7 @@ var orm = {
   },
 
   // method to insert values into table
-  insertOne: function (table, cols, vals, cb) {
+  create: function (table, cols, vals, cb) {
 
     var queryString = "INSERT INTO " + table;
 
@@ -81,7 +81,7 @@ var orm = {
   },
 
   // object to update values in table
-  updateOne: function (table, objColVals, condition, cb) {
+  update: function (table, objColVals, condition, cb) {
 
     var queryString = "UPDATE " + table;
 
@@ -109,7 +109,7 @@ var orm = {
 
   }
 
-}; // end orm object
+};
 
 // export orm
 module.exports = orm;
