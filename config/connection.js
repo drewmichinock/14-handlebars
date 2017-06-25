@@ -25,8 +25,5 @@ connection.connect(function (err) {
 // export connection for orm to use
 module.exports = connection;
 
-// export connection for orm to use
-module.exports = mysql;
-
 // export router
 // module.exports = router;
