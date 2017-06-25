@@ -9,4 +9,3 @@ CREATE TABLE if not exists burgers (
     date TIMESTAMP,
 	PRIMARY KEY (id)    
 );
-
