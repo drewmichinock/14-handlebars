@@ -1,53 +1,39 @@
-// import express
 var express = require("express");
+var routes = express.Router();
 
-// create router for app
-var router = express.Router();
 
-// import model (burger.js) to use its db functions
 var burger = require("../models/burger.js");
 
-// create routes and create logic within those routes where required
-router.get("/", function(req, res) {
-  cat.all(function(data) {
-    var hbsObject = {
-      cats: data
+
+routes.get("/", function(req, res) {
+  burger.all(function(data) {
+    var object = {
+      burgers: data
     };
-    console.log(hbsObject);
-    res.render("index", hbsObject);
+
+    res.render("index", object);
   });
 });
 
-router.post("/", function(req, res) {
-  cat.create([
-    "name", "sleepy"
+routes.post("/", function(req, res) {
+  burger.create([
+    "burger_name", "devoured", "date"
   ], [
-    req.body.name, req.body.sleepy
+    req.body.burger_name, req.body.devoured, req.body.date
   ], function() {
     res.redirect("/");
   });
 });
 
-router.put("/:id", function(req, res) {
-  var condition = "id = " + req.params.id;
+routes.put("/:id", function(req, res) {
+  var id = "id = " + req.params.id;
 
-  console.log("condition", condition);
-
-  cat.update({
-    sleepy: req.body.sleepy
-  }, condition, function() {
+  burger.update({
+    devoured: req.body.devoured
+  }, id, function() {
     res.redirect("/");
   });
 });
 
 
-
-
-
-
-
-
-
-
-// export router
-module.exports = router;
+module.exports = routes;

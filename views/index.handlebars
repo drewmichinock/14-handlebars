@@ -1,24 +1,47 @@
 <div class="container">
-    <h1>Eat-Da-Burger</h1>
-    <div class="jumbotron">
-        <h1><i class="fa fa-facebook-square" aria-hidden="true"></i> Friend Finder</h1>
-        <hr>
-        <h2>Answer a few basic questions.</h2>
-        <h2>Then find the friend with the greatest compatibility!</h2>
-        <br>
-        <div>
-            <a href="survey">
-                    <button type="button" class="btn btn-lg btn-primary">
-                        <h4>
-                    <span class="glyphicon glyphicon-list-alt"></span> Go to Survey<h4>
-                    </button>
-                </a>
+    <div class="row">
+        <div class="col-md-4 col-sm-4 col-md-offset-4 col-sm-offset-4">
+            <div class="row">
+                <img src="assets/img/burger.png" alt="Eat-Da-Burger Logo" id="burger-img">
+            </div>
+            <div class="row">
+                <h1>Eat-Da-Burger!</h1>
+            </div>
+            <div class="row">
+                <div class="col-md-6 burger-add">
+
+                    {{#each burgers}}
+                        {{#unless this.devour}}
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    {{this.name}}
+                                </div>
+                            </div>
+                            <form action="/{{this.id}}?_method=PUT" method="POST">
+                                <input type="hidden" name="devour" value="true">
+                                <button type="submit">Devour It!</button>
+                            </form>
+                        {{/unless}}
+                    {{/each}}
+
+                </div>
+
+                <div class="col-md-6 burger-del">
+
+
+
+
+                </div>
+            </div>
+            <div class="row">
+                <textarea id="burger-input"></textarea>
+            </div>
+            <div class="row">
+                <button type="button" class="btn btn-primary">Submit</button>
+            </div>
+            <div class="row">
+                <p id="instructions">Enter a burger you want to eat. Click the "Submit" button.</p>
+            </div>
         </div>
     </div>
-    <footer class="footer">
-        <div class="container">
-            <p><a href="/api/friends" target="_blank">API Friends List</a> | <a href="https://github.com/drewmichinock/13-express"
-                    target="_blank">GitHub Repo</a></p>
-        </div>
-    </footer>
 </div>
